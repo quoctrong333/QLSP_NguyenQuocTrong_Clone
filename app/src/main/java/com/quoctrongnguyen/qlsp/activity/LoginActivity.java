@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity
         setContentView(R.layout.activity_login);
 
         addControls();
-        addEvents();
+        addEvents();//trongedit 1231
     }
 
     private void addEvents()
