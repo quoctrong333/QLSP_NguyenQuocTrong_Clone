@@ -41,13 +41,15 @@ import static android.Manifest.permission.READ_CONTACTS;
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends AppCompatActivity  {
+public class LoginActivity extends AppCompatActivity
+{
 
-    EditText txtUserName , txtPassWord ;
+    EditText txtUserName, txtPassWord;
     Button btnLogin;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -55,24 +57,31 @@ public class LoginActivity extends AppCompatActivity  {
         addEvents();
     }
 
-    private void addEvents() {
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+    private void addEvents()
+    {
+        btnLogin.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                if ("admin".compareTo(txtUserName.getText().toString())==0&&"123".compareTo(txtPassWord.getText().toString())==0)
+            public void onClick(View view)
+            {
+                /*sao khong thu viet như vậy xem*/
+                if (txtUserName.getText().toString().equals("admin") && "123".compareTo(txtPassWord.getText().toString()) == 0)
                 {
                     Intent intent = new Intent(LoginActivity.this, ListSP_Activity.class);
                     startActivity(intent);
-                    Toast.makeText(LoginActivity.this,"Đăng Nhập Thành Công", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Đăng Nhập Thành Công", Toast.LENGTH_LONG).show();
 
-                }else{
-                    Toast.makeText(LoginActivity.this,"UserName hoặc Pass không đúng !",Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(LoginActivity.this, "UserName hoặc Pass không đúng !", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
-    private void addControls() {
+    private void addControls()
+    {
         txtUserName = findViewById(R.id.txtUserName);
         txtPassWord = findViewById(R.id.txtPassWord);
         btnLogin = findViewById(R.id.btnLogin);
